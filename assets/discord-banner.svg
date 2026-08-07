@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 90" width="800" height="90">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="0" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#1c1041"/>
+      <stop offset="100%" stop-color="#2a1760"/>
+    </linearGradient>
+    <linearGradient id="btnGrad" x1="0" y1="0" x2="1" y2="0" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#7a57d6"/>
+      <stop offset="100%" stop-color="#9878e8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="90" rx="8" fill="url(#bg)"/>
+
+  <!-- Top + bottom accent lines -->
+  <rect width="800" height="3" rx="1.5" fill="#7a57d6"/>
+  <rect y="87" width="800" height="3" rx="1.5" fill="#7a57d6"/>
+
+  <!-- Discord-style chat bubble icon -->
+  <path d="M16,32 Q16,22 26,22 L50,22 Q60,22 60,32 L60,50 Q60,60 50,60 L32,60 L20,70 L22,60 Q16,58 16,50 Z"
+        fill="url(#btnGrad)"/>
+  <circle cx="30" cy="41" r="3.4" fill="#1c1041"/>
+  <circle cx="46" cy="41" r="3.4" fill="#1c1041"/>
+
+  <!-- Title -->
+  <text x="106" y="36" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#ffffff">Join the Discord</text>
+
+  <!-- Subtitle -->
+  <text x="106" y="57" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#9887c4">Chat with the team and other users, get help, and follow along live.</text>
+
+  <!-- Discord pill button -->
+  <rect x="106" y="66" width="150" height="18" rx="9" fill="url(#btnGrad)"/>
+  <text x="181" y="79" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="700" fill="white" text-anchor="middle">Join Discord</text>
+</svg>

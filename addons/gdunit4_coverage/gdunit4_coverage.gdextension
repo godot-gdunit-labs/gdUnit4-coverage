@@ -1,0 +1,14 @@
+[configuration]
+
+entry_symbol = "gdunit4_coverage_library_init"
+compatibility_minimum = "4.5"
+reloadable = true
+
+[libraries]
+
+windows.debug.x86_64 = "res://addons/gdunit4_coverage/bin/libgdunit4_coverage.windows.template_debug.x86_64.dll"
+windows.release.x86_64 = "res://addons/gdunit4_coverage/bin/libgdunit4_coverage.windows.template_release.x86_64.dll"
+linux.debug.x86_64 = "res://addons/gdunit4_coverage/bin/libgdunit4_coverage.linux.template_debug.x86_64.so"
+linux.release.x86_64 = "res://addons/gdunit4_coverage/bin/libgdunit4_coverage.linux.template_release.x86_64.so"
+macos.debug = "res://addons/gdunit4_coverage/bin/libgdunit4_coverage.macos.template_debug.framework"
+macos.release = "res://addons/gdunit4_coverage/bin/libgdunit4_coverage.macos.template_release.framework"

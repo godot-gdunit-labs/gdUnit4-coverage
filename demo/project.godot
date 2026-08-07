@@ -1,0 +1,27 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="gdUnit4-coverage-demo"
+config/description="Minimal demo project for the gdUnit4-Coverage GDExtension - see docs/EXAMPLES.md"
+config/features=PackedStringArray("4.7")
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gdUnit4/plugin.cfg", "res://addons/gdunit4_coverage/plugin.cfg")
+
+[gdunit4]
+
+settings/test/test_discovery=true
+hooks/session_hooks=Dictionary[String, bool]({
+"res://addons/gdunit4_coverage/GdUnitCoverageTestSessionHook.gd": true
+})
+settings/test/test_lookup_folder="tests"

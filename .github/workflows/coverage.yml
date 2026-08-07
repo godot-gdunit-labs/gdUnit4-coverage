@@ -1,0 +1,95 @@
+# Live version of the CI/CD example in docs/EXAMPLES.md.
+name: Coverage
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+env:
+  # The gdcov runner must match the project's Godot minor exactly, so the
+  # stock editor and the runner always share one version.
+  GODOT_VERSION: "4.7-stable"
+  GDUNIT4_VERSION: "v6.2.0"
+  # Bump on each new plugin release.
+  PLUGIN_RELEASE_TAG: "v0.1.2"
+  # Fully-qualified so this example still works when copied into another
+  # project's repo, not just when run inside gdUnit4-coverage itself.
+  PLUGIN_REPO: "godot-gdunit-labs/gdUnit4-coverage"
+
+permissions:
+  contents: read
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Install gdUnit4
+        run: |
+          curl -fsSL "https://github.com/godot-gdunit-labs/gdUnit4/archive/refs/tags/${GDUNIT4_VERSION}.tar.gz" -o gdunit4.tar.gz
+          mkdir -p gdunit4-src demo/addons
+          tar xzf gdunit4.tar.gz -C gdunit4-src --strip-components=1
+          mv gdunit4-src/addons/gdUnit4 demo/addons/gdUnit4
+          rm -rf gdunit4-src gdunit4.tar.gz
+
+      # The "-trial" suffix tracks the published asset name.
+      - name: Install gdUnit4-coverage plugin (published release)
+        run: |
+          asset="gdUnit4-coverage-${PLUGIN_RELEASE_TAG#v}-trial.zip"
+          curl -fsSL -o plugin.zip \
+            "https://github.com/$PLUGIN_REPO/releases/download/$PLUGIN_RELEASE_TAG/$asset"
+          unzip -o -q plugin.zip -d demo
+
+      - name: Download gdcov runner
+        run: |
+          asset="gdcov-$GODOT_VERSION-linux-x86_64.zip"
+          base="https://github.com/$PLUGIN_REPO/releases/download/gdcov-$GODOT_VERSION"
+          mkdir -p gdcov-dl bin
+          curl -fsSL -o "gdcov-dl/$asset" "$base/$asset"
+          curl -fsSL -o gdcov-dl/SHA256SUMS "$base/SHA256SUMS"
+          (cd gdcov-dl && grep "$asset" SHA256SUMS | sha256sum -c -)
+          unzip -o -q "gdcov-dl/$asset" -d bin
+          chmod +x bin/gdcov
+
+      # Generates the script-class cache; gdcov (a template binary) can't.
+      - name: Import project (generate script class cache)
+        run: |
+          curl -fsSL -o godot-editor.zip "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}/Godot_v${GODOT_VERSION}_linux.x86_64.zip"
+          unzip -q godot-editor.zip -d godot-editor
+          chmod +x "godot-editor/Godot_v${GODOT_VERSION}_linux.x86_64"
+          "./godot-editor/Godot_v${GODOT_VERSION}_linux.x86_64" --path demo --headless --import || true
+
+      # gdcov refuses --headless; xvfb (preinstalled on ubuntu runners)
+      # gives it a virtual display instead.
+      - name: Run tests with coverage
+        run: |
+          xvfb-run --auto-servernum ./bin/gdcov --path demo \
+            --rendering-driver opengl3 --audio-driver Dummy \
+            -s -d --ignore-error-breaks \
+            res://addons/gdUnit4/bin/GdUnitCmdTool.gd -a res://tests/
+
+      - name: Locate LCOV tracefile
+        run: |
+          lcov_file="$HOME/.local/share/godot/app_userdata/gdUnit4-coverage-demo/coverage/coverage.lcov"
+          test -f "$lcov_file" || { echo "::error::no coverage report at $lcov_file"; exit 1; }
+          cp "$lcov_file" coverage.lcov
+
+      - name: Upload coverage tracefile
+        uses: actions/upload-artifact@v7
+        with:
+          name: coverage-lcov
+          path: coverage.lcov
+
+      - name: Generate coverage report
+        uses: danielpalme/ReportGenerator-GitHub-Action@5.3.11
+        with:
+          reports: coverage.lcov
+          targetdir: coverage-report
+          reporttypes: "MarkdownSummaryGithub"
+
+      - name: Add coverage to job summary
+        run: cat coverage-report/SummaryGithub.md >> "$GITHUB_STEP_SUMMARY"

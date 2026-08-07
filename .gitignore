@@ -1,0 +1,44 @@
+# Godot
+.godot/
+*.esc
+*.cfg.json
+*.import
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+*.exp
+*.lib
+*.pdb
+*.uid
+~*.dll
+~*.dll*
+addons/gdunit4_coverage/bin/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Project-specific
+coverage-reports/
+reports/
+*.lcov
+htmlcov/
+build/
+
+# Misc
+.env
+.env.local
+*.log

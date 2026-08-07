@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220" width="800" height="220">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="0" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#1c1a12"/>
+      <stop offset="100%" stop-color="#2b2410"/>
+    </linearGradient>
+    <linearGradient id="btnGrad" x1="0" y1="0" x2="1" y2="0" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#f2c14e"/>
+      <stop offset="100%" stop-color="#f7d878"/>
+    </linearGradient>
+    <pattern id="hazard" width="20" height="20" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+      <rect width="20" height="20" fill="#f2c14e"/>
+      <rect width="10" height="20" fill="#1c1a12"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="220" rx="8" fill="url(#bg)"/>
+
+  <!-- Top + bottom construction-stripe accent bars -->
+  <rect width="800" height="7" fill="url(#hazard)"/>
+  <rect y="213" width="800" height="7" fill="url(#hazard)"/>
+
+  <!-- Warning triangle icon -->
+  <path d="M45,44 L80,104 Q84,111 76,111 L14,111 Q6,111 10,104 Z"
+        fill="none" stroke="#f2c14e" stroke-width="3" stroke-linejoin="round"/>
+  <line x1="45" y1="66" x2="45" y2="88" stroke="#f2c14e" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="45" cy="99" r="2.4" fill="#f2c14e"/>
+
+  <!-- Title -->
+  <text x="110" y="42" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#f2c14e">Closed Beta</text>
+
+  <!-- Body copy, wrapped -->
+  <text font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#e8dfc8">
+    <tspan x="110" y="66"><tspan font-weight="700" fill="#f2c14e">This project is in closed beta.</tspan> Everything below works, but APIs, settings,</tspan>
+    <tspan x="110" y="86">and the distribution model can still change without notice. This build is a</tspan>
+    <tspan x="110" y="106"><tspan font-weight="700" fill="#f2c14e">free trial</tspan>: coverage tracking caps at <tspan font-weight="700" fill="#f2c14e">20 distinct files per session</tspan>.</tspan>
+    <tspan x="110" y="126">Found a bug or have feedback? Open an issue or start a discussion — beta</tspan>
+    <tspan x="110" y="146">feedback directly shapes the v1.0 scope.</tspan>
+  </text>
+
+  <!-- Feedback pill button -->
+  <rect x="110" y="168" width="165" height="26" rx="13" fill="url(#btnGrad)"/>
+  <text x="192" y="185" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="700" fill="#2b2410" text-anchor="middle">Give Feedback</text>
+</svg>
