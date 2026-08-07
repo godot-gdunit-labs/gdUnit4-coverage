@@ -7,24 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### In Development
-- Core coverage tracking via debugger integration
-- LCOV format export
-- Editor gutter visualization
-- gdUnit4 integration
-- CLI export tools
+Nothing yet.
 
-See [GitHub Issues](https://github.com/godot-gdunit-labs/gdUnit4-coverage/issues) for current work.
-
-## [0.1.0] - TBD
+## [0.1.0] - [0.1.2]
 
 ### Added
-- Initial release (planned)
-- Line-by-line code coverage tracking for GDScript
-- LCOV format export for standard tool compatibility
-- Visual coverage feedback in Godot script editor
-- gdUnit4 integration with minimal overhead
+
+- Line-by-line code coverage tracking for GDScript, recorded in-process by
+  the **gdcov** patched-engine runner — see
+  [Architecture](docs/ARCHITECTURE.md) for how it works
+- LCOV format export (line, function, and branch records) for standard tool
+  compatibility
+- Visual coverage feedback in the Godot script editor: gutter coloring plus
+  a Coverage Report panel
+- gdUnit4 integration via a test session hook — coverage runs from the
+  editor Tools menu, the gdUnit4 Inspector, the script editor context menu,
+  or the FileSystem dock
+- `CoverageApi` GDScript API for manual export, filtering, and reset
 
 ---
 
-**Note:** This project is currently in pre-release development. Features and APIs are subject to change before the first stable release.
+**Note:** This project is in closed beta. Features and APIs are subject to
+change before the first stable release.

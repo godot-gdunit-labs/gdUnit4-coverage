@@ -1,0 +1,109 @@
+name: Bug Report
+description: Report a gdUnit4-coverage bug
+title: "Brief description of the issue"
+labels: ["bug"]
+type: bug
+assignees:
+  - MikeSchulze
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Thanks for taking the time to fill out this bug report!
+        - Please search [open issues](https://github.com/godot-gdunit-labs/gdUnit4-coverage/issues?q=is%3Aissue) for
+          potential duplicates before filing yours.
+        - Verify you're on a [supported Godot version](INSTALLATION.md) (4.7 stable) and a gdcov runner build that
+          matches it exactly.
+        - **Note on Fix Proposals & Code Research:** Bug reports should focus on describing the observed behavior and
+          steps to reproduce. If you have investigated the root cause or have a proposed fix, please submit a Pull
+          Request directly rather than embedding technical research in the issue body.
+
+  - type: input
+    id: plugin-version
+    attributes:
+      label: gdUnit4-coverage Version
+      description: Which version of the plugin are you using? Check Project Settings -> Plugins, or CoverageApi.get_version().
+      placeholder: e.g. 0.1.2
+    validations:
+      required: true
+
+  - type: input
+    id: gdunit4-version
+    attributes:
+      label: gdUnit4 Version
+      description: Which gdUnit4 version are you using?
+      placeholder: e.g. 6.2.0
+    validations:
+      required: true
+
+  - type: input
+    id: godot-version
+    attributes:
+      label: Godot Version
+      description: Which Godot version are you using?
+      placeholder: v4.7.stable.official [5b4e0cb0f]
+    validations:
+      required: true
+
+  - type: textarea
+    id: system
+    attributes:
+      label: Environment Details
+      description: Provide details about your development environment
+      placeholder: |
+        **Operating System:** (e.g., Windows 11, macOS Ventura, Ubuntu 22.04)
+        **Running via:** editor command / gdUnit4 Inspector / script editor context menu / CI
+        **Additional tools/plugins:** (other Godot addons that might conflict)
+    validations:
+      required: true
+
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+      placeholder: |
+        **What happened?**
+        Describe what actually occurred.
+
+        **What did you expect to happen?**
+        Describe the expected behavior.
+
+        **Additional context**
+        Any other relevant information, error messages, or screenshots.
+        You can include images or videos with drag and drop, and format code blocks or logs with <code>```</code> tags.
+        Note: Detailed code walkthroughs or proposed fixes should be submitted as a Pull Request rather than in the issue body.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: |
+        Provide a detailed list of steps that reproduces the issue.
+        Having reproducible issues is crucial for contributors to be able to solve them.
+      placeholder: |
+        1. Create a new Godot project
+        2. Install gdUnit4 and gdUnit4-coverage
+        3. Set up the gdcov runner
+        4. Run tests with coverage
+        5. Observe the error
+      value: |
+        **Steps:**
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: textarea
+    id: example-project
+    attributes:
+      label: Minimal Reproduction Project
+      description: |
+        Small Godot project reproducing the issue (exclude .godot/, addons/gdUnit4/, and addons/gdunit4_coverage/)
+      placeholder: |
+        Drag and drop a ZIP file (max 10 MB)
+        **Wait for upload to complete before selecting other fields**

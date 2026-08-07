@@ -1,0 +1,115 @@
+name: Improvement
+description: Suggest an improvement to the gdUnit4-coverage plugin or docs
+title: "Brief description of the improvement"
+labels: ["improvement"]
+type: improvement
+assignees:
+  - MikeSchulze
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Thanks for suggesting improvements!
+        - Please search [existing improvement issues](https://github.com/godot-gdunit-labs/gdUnit4-coverage/issues?q=label%3Aimprovement%20is%3Aissue) to avoid duplicates
+        - Consider the impact on existing users and backward compatibility
+        - Note: this repo ships the GDScript plugin (`addons/gdunit4_coverage/`) - the native GDExtension source is
+          closed. Improvements to native behavior are welcome as issues, but code contributions here can only
+          target the GDScript side.
+
+  - type: dropdown
+    id: improvement-type
+    attributes:
+      label: Improvement Type
+      description: What type of improvement is this?
+      options:
+        - Code cleanup/organization
+        - Performance optimization
+        - API simplification
+        - Error handling improvement
+        - Documentation/naming improvement
+        - CI/tooling improvement
+      default: 0
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-state
+    attributes:
+      label: Current State
+      description: What is the current implementation that needs improving?
+      placeholder: |
+        Describe the current code/implementation:
+        - Which files, classes, or functions are affected?
+        - What makes the current implementation problematic?
+        - Include code snippets if helpful:
+
+        ```gdscript
+        # Current implementation example
+        func current_problematic_code():
+            # existing code here
+            pass
+        ```
+    validations:
+      required: true
+
+  - type: textarea
+    id: problems-motivation
+    attributes:
+      label: Problems and Motivation
+      description: Why does this improvement need to happen?
+      placeholder: |
+        Explain the motivation for this improvement:
+        - What problems does the current code have?
+        - How does it impact maintainability, performance, or usability?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-changes
+    attributes:
+      label: Proposed Changes
+      description: What specific changes do you propose?
+      placeholder: |
+        Describe the proposed improvement:
+        - What would the new implementation look like?
+        - How would the API change (if at all)?
+
+        ```gdscript
+        # Proposed implementation example
+        func improved_implementation():
+            # new approach here
+            pass
+        ```
+    validations:
+      required: true
+
+  - type: textarea
+    id: backward-compatibility
+    attributes:
+      label: Backward Compatibility
+      description: How would this affect existing users?
+      placeholder: |
+        Consider backward compatibility:
+        - Would this be a breaking change?
+        - How could existing code be migrated?
+        - Are there ways to maintain compatibility?
+    validations:
+      required: true
+
+  - type: textarea
+    id: benefits-risks
+    attributes:
+      label: Benefits and Risks
+      description: What are the expected benefits and potential risks?
+      placeholder: |
+        **Benefits:**
+        - Improved maintainability
+        - Better performance
+        - Cleaner API
+
+        **Risks:**
+        - Potential breaking changes
+        - Implementation complexity
+    validations:
+      required: false

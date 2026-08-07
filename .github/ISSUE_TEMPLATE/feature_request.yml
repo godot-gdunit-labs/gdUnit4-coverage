@@ -1,0 +1,118 @@
+name: Feature Request
+description: Suggest an idea for gdUnit4-coverage
+title: "Brief description of the feature"
+labels: ["enhancement"]
+type: feature
+assignees:
+  - MikeSchulze
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Thanks for suggesting a new feature!
+        - Please search [existing feature requests](https://github.com/godot-gdunit-labs/gdUnit4-coverage/issues?q=label%3Aenhancement%20is%3Aissue) to avoid duplicates
+        - Consider if this might be better as a GitHub Discussion to gather community feedback first
+        - Check if this feature might already exist in the latest version
+
+  - type: dropdown
+    id: feature-type
+    attributes:
+      label: Feature Type
+      description: What type of feature is this?
+      options:
+        - New coverage metric or report format
+        - Editor gutter / Coverage Report panel enhancement
+        - CI/CD integration improvement
+        - Performance improvement
+        - CoverageApi enhancement
+        - Documentation/Examples
+        - Other
+      default: 0
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem-description
+    attributes:
+      label: Problem/Use Case
+      description: What problem would this feature solve or what use case would it enable?
+      placeholder: |
+        Describe the problem or use case:
+        - What are you trying to accomplish?
+        - What current limitations are you facing?
+        - How does this affect your coverage workflow?
+
+        Example: "I'm missing a way to export coverage as Cobertura XML for tool X..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      description: How would you like this feature to work?
+      placeholder: |
+        Describe your proposed solution:
+        - What should the feature do?
+        - How should it behave?
+        - What would the API/interface look like?
+
+        Include code examples if applicable:
+        ```gdscript
+        # Example of how the feature might be used
+        CoverageApi.export_cobertura("user://coverage/coverage.xml")
+        ```
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: What other approaches have you considered?
+      placeholder: |
+        Describe alternative solutions you've thought about:
+        - Other ways to solve the same problem
+        - Workarounds you're currently using
+        - Why those alternatives aren't sufficient
+    validations:
+      required: false
+
+  - type: textarea
+    id: impact-benefits
+    attributes:
+      label: Impact and Benefits
+      description: How would this feature benefit the gdUnit4-coverage community?
+      placeholder: |
+        Describe the potential impact:
+        - Who would benefit from this feature?
+        - How common is this use case?
+        - What coverage workflows would this improve?
+    validations:
+      required: false
+
+  - type: textarea
+    id: examples-references
+    attributes:
+      label: Examples and References
+      description: Examples from other tools or additional context
+      placeholder: |
+        Include relevant examples:
+        - How similar features work in other coverage tools
+        - Links to relevant documentation or discussions
+        - Screenshots or mockups (if UI-related)
+        - Related issues or pull requests
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      description: Are you interested in contributing to this feature?
+      options:
+        - label: I'm willing to contribute code for this feature
+        - label: I'm willing to help with testing/feedback
+        - label: I'm willing to help with documentation
+        - label: I would just like to request this feature
