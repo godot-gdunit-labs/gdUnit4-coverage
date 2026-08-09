@@ -1,6 +1,6 @@
 name: Improvement
 description: Suggest an improvement to the gdUnit4-coverage plugin or docs
-title: "Brief description of the improvement"
+title: "GD-XXX: Brief description of the improvement"
 labels: ["improvement"]
 type: improvement
 assignees:

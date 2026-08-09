@@ -1,6 +1,6 @@
 name: Documentation
 description: Report missing or incorrect gdUnit4-coverage documentation
-title: "Brief description of documentation issue"
+title: "DOC-XXX: Brief description of documentation issue"
 labels: ["documentation"]
 type: documentation
 assignees:

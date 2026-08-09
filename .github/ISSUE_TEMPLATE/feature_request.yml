@@ -1,6 +1,6 @@
 name: Feature Request
 description: Suggest an idea for gdUnit4-coverage
-title: "Brief description of the feature"
+title: "GD-XXX: Brief description of the feature"
 labels: ["enhancement"]
 type: feature
 assignees:
