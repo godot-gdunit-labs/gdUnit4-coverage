@@ -38,10 +38,16 @@ v6.2+. Check **Help → About** for your Godot version.
 
 ## gdcov Runner Issues
 
-### `Could not create child process: ...gdcov.exe`
+> **First time running coverage?** If the run seems stuck with no
+> progress, your security software may be holding gdcov back — see
+> [Coverage Window Opens, Then Hangs
+> Forever](#coverage-window-opens-then-hangs-forever) below. This is
+> common on the very first run of a newly downloaded or rebuilt gdcov
+> binary and is not specific to this plugin.
 
-**Problem:** Running a coverage command fails with this error (or the
-Linux/macOS equivalent).
+### "failed to start the gdcov runner"
+
+**Problem:** Running a coverage command reports this instead of running.
 
 **Likely causes, in order of likelihood:**
 
@@ -55,14 +61,10 @@ Linux/macOS equivalent).
    spawning it as a child process can get silently blocked. Fix:
    right-click the `.exe` → **Properties** → check **Unblock**, or run
    `Unblock-File path\to\gdcov.exe` in PowerShell.
-3. **Third-party antivirus / HIPS software.** Products like Comodo
-   Internet Security block an unsigned parent process (the Godot
-   editor) from spawning an unrecognized child process (a freshly
-   downloaded gdcov binary) at the driver level — this persists even
-   after closing the antivirus's tray icon, since the enforcement runs
-   as a background service. Check the security software's own logs
-   (not just Windows Defender's) for a block/sandbox entry, and add an
-   exception for the Godot editor and/or gdcov binary.
+3. **Third-party antivirus / security software.** See [Coverage Window
+   Opens, Then Hangs Forever](#coverage-window-opens-then-hangs-forever)
+   below — the same security-software behavior more often shows up as a
+   silent hang than as this error, but can cause either.
 4. **gdcov/Godot version mismatch.** The runner must match your
    project's Godot minor version exactly; a mismatch produces a clear
    version-mismatch error instead, not this one — but worth
@@ -81,6 +83,61 @@ Runner** always fetches the matching build automatically.
 **Problem:** A coverage command reports this instead of running.
 
 **Solution:** Restart the Godot editor, then retry.
+
+### Coverage Window Opens, Then Hangs Forever
+
+**Problem:** The gdcov runner window appears (sometimes with a colored
+border around it) and your tests never start, or start and never finish —
+no output, no error, just a frozen window you have to close manually.
+
+**Cause:** Security software (antivirus / internet security suites) can
+silently trap gdcov the first time it runs and never let it continue.
+Confirmed with **Comodo Internet Security**; other security suites with a
+similar "run unknown programs in a protected sandbox" feature can likely
+do the same thing. Skip straight to **Solution** below if you just want
+the fix — the rest of this section explains why it happens, for anyone
+who wants that context before changing a security setting.
+
+**Why your security software reacts to gdcov, in plain terms:** most
+antivirus/internet-security products keep a trust list of programs they
+recognize, built from how widely-installed and how long-known a program
+is, and from whether it carries a code-signing certificate that vouches
+for its publisher. gdcov doesn't have either yet — see [What Is
+gdcov?](ARCHITECTURE.md#what-is-gdcov) for what it actually does, so you
+can judge that trust decision yourself. Some security software reacts to
+an unrecognized program by watching it closely or running it in a
+restricted sandbox until you (or the vendor's cloud service) vouch for it
+— and that restriction can block something gdcov needs to start
+rendering, which is what causes the freeze.
+
+Comodo's dashboard shows this kind of block happening under **Blocked
+Intrusions**:
+
+![Comodo dashboard, Blocked Intrusions counter highlighted][img-blocking]
+
+Its **View Logs** screen shows what specifically got stopped — here, gdcov
+being denied a normal keyboard-input hook that any Godot game or editor
+sets up on startup:
+
+![Comodo HIPS log: gdcov blocked from Install Hook and keyboard access][img-log]
+
+In Comodo, this is **HIPS → File Rating → File List** — find the gdcov
+binary (or add it manually) and mark it **Trusted**:
+
+![Comodo File List, gdcov entry with Rating set to Trusted][img-trusted]
+
+Press **OK** to accept the change, then rerun the coverage command.
+
+If your security software doesn't use the same terms, look for anything
+described as a program's trust, reputation, or rating — as opposed to a
+firewall/network rule or a simple allow/block rule.
+
+**Note:** this fix is tied to the exact file, so it must be repeated every
+time gdcov is rebuilt or re-downloaded (for example, after **Setup
+Coverage Runner** fetches an update) — the new file looks unrecognized
+again to your security software. If that gets tedious, check whether your
+security software can trust an entire folder instead of one file at a
+time.
 
 ---
 
@@ -252,4 +309,8 @@ software renderer instead; see
 
 ---
 
-**Last Updated:** 2026-08-06
+[img-blocking]: ../assets/troubleshooting/commodo-blocking.png
+[img-log]: ../assets/troubleshooting/commodo-protocol.png
+[img-trusted]: ../assets/troubleshooting/comodo-file-rating-trusted.png
+
+**Last Updated:** 2026-08-09

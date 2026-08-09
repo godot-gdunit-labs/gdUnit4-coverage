@@ -37,6 +37,11 @@ Coverage is recorded in-process by **gdcov**, a patched Godot binary — the
 editor itself can't record coverage on its own, so you need a gdcov build
 that matches your Godot version.
 
+> **Note:** the first time gdcov runs on a machine, antivirus/security
+> software may flag it as unrecognized and block or freeze it — see
+> [What Is gdcov?][gdcov-what] and [Troubleshooting][ts-hang] if that
+> happens.
+
 **Automatic (recommended):**
 
 1. **Project → Tools → GdUnit4 Coverage: Setup Coverage Runner**
@@ -55,12 +60,11 @@ that matches your Godot version.
 4. **Windows only:** if you downloaded the binary through a browser,
    Windows may tag it as downloaded-from-the-internet and block your
    antivirus/security software from letting the editor spawn it. If you
-   see `Could not create child process`, right-click the `.exe` →
+   see `failed to start the gdcov runner`, right-click the `.exe` →
    **Properties** → check **Unblock**, or run
-   `Unblock-File path\to\gdcov.exe` in PowerShell. Third-party
-   antivirus/HIPS software (e.g. Comodo) can also block an unrecognized
-   binary at the driver level even after this — check the security
-   software's own logs if the error persists.
+   `Unblock-File path\to\gdcov.exe` in PowerShell. See
+   [Troubleshooting][ts-hang] if the problem persists or shows up as a
+   hang instead of this error.
 
 The gdcov version must match your project's Godot **minor** version
 exactly (e.g. a 4.7 gdcov build for a 4.7 project) — a mismatch is
@@ -94,3 +98,6 @@ If you encounter issues:
 2. Review [FAQ](TROUBLESHOOTING.md#faq)
 3. [Report an issue](https://github.com/godot-gdunit-labs/gdUnit4-coverage/issues)
 4. Ask in [Discussions](https://github.com/godot-gdunit-labs/gdUnit4-coverage/discussions)
+
+[gdcov-what]: ARCHITECTURE.md#what-is-gdcov
+[ts-hang]: TROUBLESHOOTING.md#coverage-window-opens-then-hangs-forever
