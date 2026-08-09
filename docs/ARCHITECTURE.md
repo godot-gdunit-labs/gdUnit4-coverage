@@ -55,3 +55,23 @@ sequenceDiagram
 
 See [Usage Guide](USAGE.md) for how to trigger a run, and
 [Troubleshooting](TROUBLESHOOTING.md) if a run isn't producing data.
+
+## What Is gdcov?
+
+gdcov is Godot Engine itself, built from the official Godot source, with
+one small change: it extends Godot's own built-in debugger to record which
+line of your code just ran. That's the entire modification.
+
+> **Disclaimer:** gdcov collects no information about you or your project,
+> and makes no network connection to anywhere outside your own machine. The
+> one network connection it does open is local-only (`127.0.0.1`), between
+> gdcov and the Godot editor — that's gdUnit4's own existing
+> test-communication channel, not something this plugin added.
+
+gdcov isn't currently code-signed, and as a small, purpose-built tool it
+will never be as widely recognized to a security vendor as Godot's own
+official download — the first time it runs on a machine, antivirus or
+internet-security software may treat it as unrecognized and react to it.
+See [Coverage Window Opens, Then Hangs
+Forever](TROUBLESHOOTING.md#coverage-window-opens-then-hangs-forever) if
+that happens to you.
