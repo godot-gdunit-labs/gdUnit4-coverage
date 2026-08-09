@@ -53,7 +53,7 @@ jobs:
           curl -fsSL -o gdcov-dl/SHA256SUMS "$base/SHA256SUMS"
           (cd gdcov-dl && grep "$asset" SHA256SUMS | sha256sum -c -)
           unzip -o -q "gdcov-dl/$asset" -d bin
-          chmod +x bin/gdcov
+          chmod +x "bin/gdcov-$GODOT_VERSION"
 
       # Generates the script-class cache; gdcov (a template binary) can't.
       - name: Import project (generate script class cache)
@@ -67,7 +67,7 @@ jobs:
       # gives it a virtual display instead.
       - name: Run tests with coverage
         run: |
-          xvfb-run --auto-servernum ./bin/gdcov --path demo \
+          xvfb-run --auto-servernum "./bin/gdcov-$GODOT_VERSION" --path demo \
             --rendering-driver opengl3 --audio-driver Dummy \
             -s -d --ignore-error-breaks \
             res://addons/gdUnit4/bin/GdUnitCmdTool.gd -a res://tests/
