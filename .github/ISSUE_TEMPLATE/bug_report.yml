@@ -1,6 +1,6 @@
 name: Bug Report
 description: Report a gdUnit4-coverage bug
-title: "Brief description of the issue"
+title: "GD-XXX: Brief description of the issue"
 labels: ["bug"]
 type: bug
 assignees:

@@ -1,6 +1,6 @@
 name: Task
 description: A small task to implement/fix non-API related work
-title: "Brief description of the task"
+title: "TASK-XXX: Brief description of the task"
 labels: ["task"]
 type: task
 assignees:
