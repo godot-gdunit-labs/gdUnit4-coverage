@@ -3,7 +3,7 @@
 <p align="center">
   <a href="https://github.com/godot-gdunit-labs/gdUnit4-coverage/discussions">
     <img
-      src="assets/closed-beta-banner.svg"
+      src="assets/open-beta-banner.svg"
       alt="Open Beta — This project is in open beta. Everything below
         works, but APIs, settings, and the distribution model can still
         change without notice. This build is a free trial: coverage
