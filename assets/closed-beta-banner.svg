@@ -28,11 +28,11 @@
   <circle cx="45" cy="99" r="2.4" fill="#f2c14e"/>
 
   <!-- Title -->
-  <text x="110" y="42" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#f2c14e">Closed Beta</text>
+  <text x="110" y="42" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#f2c14e">Open Beta</text>
 
   <!-- Body copy, wrapped -->
   <text font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#e8dfc8">
-    <tspan x="110" y="66"><tspan font-weight="700" fill="#f2c14e">This project is in closed beta.</tspan> Everything below works, but APIs, settings,</tspan>
+    <tspan x="110" y="66"><tspan font-weight="700" fill="#f2c14e">This project is in open beta.</tspan> Everything below works, but APIs, settings,</tspan>
     <tspan x="110" y="86">and the distribution model can still change without notice. This build is a</tspan>
     <tspan x="110" y="106"><tspan font-weight="700" fill="#f2c14e">free trial</tspan>: coverage tracking caps at <tspan font-weight="700" fill="#f2c14e">20 distinct files per session</tspan>.</tspan>
     <tspan x="110" y="126">Found a bug or have feedback? Open an issue or start a discussion — beta</tspan>
