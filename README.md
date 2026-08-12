@@ -4,7 +4,7 @@
   <a href="https://github.com/godot-gdunit-labs/gdUnit4-coverage/discussions">
     <img
       src="assets/closed-beta-banner.svg"
-      alt="Closed Beta — This project is in closed beta. Everything below
+      alt="Open Beta — This project is in open beta. Everything below
         works, but APIs, settings, and the distribution model can still
         change without notice. This build is a free trial: coverage
         tracking caps at 20 distinct files per session. Found a bug or
@@ -105,7 +105,7 @@ MIT-licensed.
 
 ## Status
 
-**Version:** 0.1.0 — Closed Beta
+**Version:** 0.1.4 — Open Beta
 
 ---
 
