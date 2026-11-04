@@ -1,6 +1,5 @@
 @tool
 extends EditorPlugin
-
 ## Editor plugin entry point of gdUnit4-Coverage.
 ##
 ## Responsibilities:

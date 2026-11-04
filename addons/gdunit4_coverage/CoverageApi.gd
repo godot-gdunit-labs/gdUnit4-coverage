@@ -1,6 +1,5 @@
 class_name CoverageApi
 extends RefCounted
-
 ## Public GDScript API of the gdUnit4-Coverage GDExtension.
 ##
 ## All calls are forwarded to the native GdUnit4Coverage engine singleton
