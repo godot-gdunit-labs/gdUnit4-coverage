@@ -155,17 +155,17 @@ coverage run finishes:
 All settings live under **Project Settings → Gdunit4 Coverage** (enable
 *Advanced Settings* to see them). Key ones:
 
-| Setting | Default | Purpose |
-|---|---|---|
-| `gdunit4_coverage/runner/gdcov_path` | *(empty)* | Path to the gdcov runner binary |
-| `gdunit4_coverage/runner/count_hits` | `false` | Record real per-line execution counts instead of covered/uncovered |
-| `gdunit4_coverage/export/lcov_path` | `user://coverage/coverage.lcov` | LCOV report target |
-| `gdunit4_coverage/filter/include_paths` | *(empty = everything)* | `res://` prefixes to track |
-| `gdunit4_coverage/filter/exclude_paths` | `["res://addons/"]` | `res://` prefixes to skip |
-| `gdunit4_coverage/visualization/view_mode` | Gutter Only | Gutter Only / Gutter And Line Colors / Line Colors Only |
-| `gdunit4_coverage/visualization/show_hit_counts` | `false` | Render per-line hit counts in the gutter |
-| `gdunit4_coverage/report/threshold_good_percent` | `75.0` | Report panel "good" color threshold |
-| `gdunit4_coverage/report/threshold_warn_percent` | `50.0` | Report panel "warn" color threshold |
+| Setting                                          | Default                         | Purpose                                                            |
+| ------------------------------------------------ | ------------------------------- | ------------------------------------------------------------------ |
+| `gdunit4_coverage/runner/gdcov_path`             | *(empty)*                       | Path to the gdcov runner binary                                    |
+| `gdunit4_coverage/runner/count_hits`             | `false`                         | Record real per-line execution counts instead of covered/uncovered |
+| `gdunit4_coverage/export/lcov_path`              | `user://coverage/coverage.lcov` | LCOV report target                                                 |
+| `gdunit4_coverage/filter/include_paths`          | *(empty = everything)*          | `res://` prefixes to track                                         |
+| `gdunit4_coverage/filter/exclude_paths`          | `["res://addons/"]`             | `res://` prefixes to skip                                          |
+| `gdunit4_coverage/visualization/view_mode`       | Gutter Only                     | Gutter Only / Gutter And Line Colors / Line Colors Only            |
+| `gdunit4_coverage/visualization/show_hit_counts` | `false`                         | Render per-line hit counts in the gutter                           |
+| `gdunit4_coverage/report/threshold_good_percent` | `75.0`                          | Report panel "good" color threshold                                |
+| `gdunit4_coverage/report/threshold_warn_percent` | `50.0`                          | Report panel "warn" color threshold                                |
 
 ## Performance Considerations
 

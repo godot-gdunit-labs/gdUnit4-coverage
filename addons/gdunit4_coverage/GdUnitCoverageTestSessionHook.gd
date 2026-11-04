@@ -1,5 +1,4 @@
 extends GdUnitTestSessionHook
-
 ## gdUnit4 test session hook of gdUnit4-Coverage.
 ##
 ## Thin GDScript shim - gdUnit4 requires session hooks to be GDScript classes

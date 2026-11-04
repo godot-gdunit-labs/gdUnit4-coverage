@@ -57,3 +57,5 @@ Nothing yet.
 change before the first stable release.
 
 [ts-hang]: docs/TROUBLESHOOTING.md#coverage-window-opens-then-hangs-forever
+
+<!-- markdownlint-configure-file { "MD024": { "siblings_only": true } } -->
