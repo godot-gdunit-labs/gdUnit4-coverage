@@ -1,7 +1,7 @@
 # Live version of the CI/CD example in docs/EXAMPLES.md.
 name: Coverage
 
-on:
+on: # yamllint disable-line rule:truthy
   push:
     branches: [main]
   pull_request:
@@ -85,7 +85,7 @@ jobs:
           path: coverage.lcov
 
       - name: Generate coverage report
-        uses: danielpalme/ReportGenerator-GitHub-Action@5.3.11
+        uses: danielpalme/ReportGenerator-GitHub-Action@62f9e70ab348d56eee76d446b4db903a85ab0ea8 # 5.3.11
         with:
           reports: coverage.lcov
           targetdir: coverage-report
