@@ -85,7 +85,7 @@ jobs:
           path: coverage.lcov
 
       - name: Generate coverage report
-        uses: danielpalme/ReportGenerator-GitHub-Action@62f9e70ab348d56eee76d446b4db903a85ab0ea8 # 5.3.11
+        uses: danielpalme/ReportGenerator-GitHub-Action@861674232075b2c6bd1405a04c4bb9b150653e81 # 5.5.12
         with:
           reports: coverage.lcov
           targetdir: coverage-report
